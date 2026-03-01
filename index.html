@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nozama | Portfolio</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to right, #6fa9d3, #283135);
+
+        color: #1e293b;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        padding: 12px 30px;
+        background: white;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: #2563eb;
+      }
+
+      .nav-links a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #334155;
+        font-weight: 500;
+        transition: 0.3s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: #2563eb;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-btn {
+        padding: 8px 18px;
+        background: #2563eb;
+        color: white;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      .nav-btn:hover {
+        background: #1d4ed8;
+      }
+      section {
+        min-height: 100vh;
+        padding: 120px 8% 50px;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+      }
+
+      .hero span {
+        color: #38bdf8;
+      }
+
+      .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2563eb;
+        border: none;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      .about,
+      .projects,
+      .contact {
+        text-align: center;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        transition: 0.3s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+      }
+
+      .hero-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-img {
+        flex: 1;
+        text-align: center;
+      }
+
+      .hero-img img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #38bdf8;
+        box-shadow: 0 0 30px #38bdf8;
+        transition: 0.4s;
+      }
+
+      .hero-img img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px #38bdf8;
+      }
+
+      @media (max-width: 900px) {
+        .hero-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-img {
+          margin-top: 40px;
+        }
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        background: #738caf;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+      }
+      .social-icons {
+        margin-top: 25px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        margin-right: 15px;
+        border-radius: 50%;
+        background: white;
+        color: #2563eb;
+        font-size: 18px;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover {
+        background: #2563eb;
+        color: white;
+        transform: translateY(-5px);
+      }
+      .project-links {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .project-btn {
+        padding: 6px 14px;
+        background: #2563eb;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      .project-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      .project-btn.outline {
+        background: transparent;
+        border: 1px solid #2563eb;
+        color: #2563eb;
+      }
+
+      .project-btn.outline:hover {
+        background: #2563eb;
+        color: white;
+      }
+      .about {
+        padding: 100px 8%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-box {
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .about-box h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #2563eb;
+      }
+
+      .about-box p {
+        color: #000000;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .about-highlights {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .highlight {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        width: 220px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        transition: 0.3s;
+      }
+
+      .highlight:hover {
+        transform: translateY(-8px);
+      }
+
+      .highlight h3 {
+        color: #2563eb;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .highlight span {
+        font-size: 14px;
+        color: #64748b;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #e2e8f0;
+        color: #475569;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Md Sajid Ali</div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="resume.pdf" download class="nav-btn">Resume</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1>Hi, I'm <span>Md Sajid Ali</span></h1>
+          <h2><span id="typing"></span></h2>
+
+          <button class="btn" onclick="scrollToSection('projects')">
+            View Projects
+          </button>
+
+          <a
+            href="resume.pdf"
+            download
+            class="btn"
+            style="
+              text-decoration: none;
+              display: inline-block;
+              margin-left: 15px;
+            "
+          >
+            Download Resume
+          </a>
+        </div>
+
+        <div class="hero-img">
+          <img src="profile_image.jpg" alt="Md Sajid Ali" />
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="https://github.com/NozamaSaaz" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/md-sajid-ali-48b521284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://twitter.com/mrsajid06" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-box">
+        <h2>About Me</h2>
+        <p>
+          Motivated BCA 3rd year student with strong interest in programming and
+          software development. Seeking an opportunity to apply technical skills
+          and gain practical experience in a professional environment.
+        
+          I enjoy solving problems, learning new tools, and continuously
+          improving my technical skills. My goal is to become a professional
+          developer who creates impactful digital solutions.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            <h3>Problem Solving</h3>
+            <span>Strong logical & analytical thinking</span>
+          </div>
+
+          <div class="highlight">
+            <h3>Web Development</h3>
+            <span>Modern responsive UI development</span>
+          </div>
+
+          <div class="highlight">
+            <h3>Continuous Learning</h3>
+            <span>Always upgrading technical skills</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="cards">
+        <div class="card">
+          <h2>Nozama Clicks (Photography Blog)</h2>
+          <p>
+            I'm excited to share a project I recently completed—a single-page,
+            responsive Photography Blog website.
+          </p>
+          <p>
+            This was part of my Web Development subject, and I built it from
+            scratch using HTML, CSS, and JavaScript
+          </p>
+          <p>
+            It showcases both my passion for photography and my growing skills
+            in front-end development.
+          </p>
+
+          <div class="project-links">
+            <a
+              href="https://nozamaclicks.netlify.app/"
+              target="_blank"
+              class="project-btn"
+              >Live Demo</a
+            >
+
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Word Counter</h2>
+          <p>
+            As a BCA student, I’m improving my frontend development skills by
+            building small practical projects by using Artificial intelligence
+            Language model &chatbot🙌
+          </p>
+          <p>
+            🔹 Features: • Counts words instantly • Counts characters (with &
+            without spaces) • Real-time input detection • Clean and responsive
+            UI
+          </p>
+          <div class="project-links">
+            <a
+              href="https://nozamasaaz.github.io/wordsnap/"
+              target="_blank"
+              class="project-btn"
+              >Live Demo</a
+            >
+            <a
+              href="https://nozamasaaz.github.io/wordsnap/"
+              target="_blank"
+              class="project-btn outline"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Currently Building: BCA PYQs Website</h2>
+          <p>
+            As a BCA student, I noticed that many students struggle to find
+            Previous Year Question Papers (PYQs) in one organized place.
+          </p>
+
+          <p>
+            So, I decided to build a website dedicated to BCA students where
+            they can easily access semester-wise PYQs.
+          </p>
+          <div class="project-links">
+            <a href="#" target="_blank" class="project-btn">Live Demo</a>
+            <a href="#" target="_blank" class="project-btn outline">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2>Contact Me</h2>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <footer>© 2026 Md Sajid Ali | All Rights Reserved</footer>
+
+    <script>
+      // Typing Effect
+      const text = [
+        "BCA Student",
+        "Trying Explore Tech World",
+        "Wanna something Acheive",
+      ];
+      let i = 0;
+      let j = 0;
+      let currentText = "";
+      let isDeleting = false;
+
+      function type() {
+        currentText = text[i];
+
+        if (!isDeleting) {
+          document.getElementById("typing").innerHTML = currentText.substring(
+            0,
+            j++,
+          );
+          if (j > currentText.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+            return;
+          }
+        } else {
+          document.getElementById("typing").innerHTML = currentText.substring(
+            0,
+            j--,
+          );
+          if (j == 0) {
+            isDeleting = false;
+            i = (i + 1) % text.length;
+          }
+        }
+        setTimeout(type, isDeleting ? 50 : 100);
+      }
+      type();
+
+      // Scroll Button
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView();
+      }
+
+      // Fake Contact Submit
+      function sendMessage(e) {
+        e.preventDefault();
+        alert("Message Sent Successfully!");
+      }
+    </script>
+  </body>
+</html>
